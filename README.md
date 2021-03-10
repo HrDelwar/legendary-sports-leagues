@@ -1,5 +1,4 @@
 # Legendary Sports Leagues || [Live site](https://hrdelwar-legendary-sports-leagues.netlify.app/)
-
 ## About app
   * Intermediate react router assignment. 
 

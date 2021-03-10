@@ -43,7 +43,7 @@ const LeagueDetails = () => {
                         <div className="col-lg-5 d-flex justify-content-center align-items-center">
                             <div className="league-img ">
                                 {
-                                    <img src={league.strGender.toLowerCase() === 'male' ? male : league.strGender.toLowerCase() === 'female' ? female : ''} alt="league-image" />
+                                    <img src={league.strGender.toLowerCase() === 'male' ? male : league.strGender.toLowerCase() === 'female' ? female : ''} alt="league" />
                                 }
                             </div>
                         </div>
