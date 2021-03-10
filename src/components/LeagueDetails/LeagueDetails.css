@@ -1,0 +1,55 @@
+.banner-image, .banner-image img {
+    z-index: 99;
+}
+
+.banner-image img, .league-img img {
+    width: 100%;
+}
+
+.banner-image {
+    max-width: 300px;
+}
+
+.league-detail {
+    background-color: #334b64 !important;
+    border-radius: 10px;
+}
+
+.social-icon {
+    border-radius: 50%;
+    font-size: 20px;
+    margin: 0 12px;
+    transition: .3s;
+}
+
+.icon-twitter {
+    background: #1DA1F2;
+    color: #fff;
+    padding: 7px 17px;
+    line-height: 2;
+}
+
+.icon-youtube {
+    background: #FF0000;
+    line-height: 2;
+    color: #fff;
+    padding: 6px 15px;
+}
+
+.icon-facebook {
+    background: #3B5998;
+    color: #fff;
+    padding: 12px 21px;
+}
+
+.icon-website {
+    background: #96708a;
+    padding: 7px 17px;
+    line-height: 2;
+    color: #fff;
+}
+
+.social-icon:hover {
+    color: #fff;
+    transform: scale(1.1)
+}
