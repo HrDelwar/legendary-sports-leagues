@@ -19,5 +19,4 @@ header h1{
 .bg-custom {
 	background: linear-gradient(45deg,#33084a,#335dd9);
 	color: #fff;
-	min-height: 800px;
 }

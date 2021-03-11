@@ -12,6 +12,7 @@ const Home = () => {
             .then(data => {
                 const topFiftyLeagues = data.leagues.slice(0, 50);
                 setLeagues(topFiftyLeagues);
+                setSpinner(false);
             })
     }, [])
 
@@ -22,19 +23,20 @@ const Home = () => {
             </header>
             <section className='p-3 leagues-section bg-custom'>
                 {
-                    spinner ? <div style={{minHeight:'600px'}} class="d-flex justify-content-center align-items-center">
+                    spinner ? <div style={{ minHeight: '600px' }} class="d-flex justify-content-center align-items-center">
                         <div class="spinner-border" role="status">
                             <span class="visually-hidden"></span>
                         </div>
-                    </div> : ''
+                    </div> :
+
+                        <div className="container-fluid">
+                            <div className="row mt-3">
+                                {
+                                    leagues.map(league => <League league={league} key={league.idLeague} />)
+                                }
+                            </div>
+                        </div>
                 }
-                <div className="container-fluid">
-                    <div className="row mt-3">
-                        {
-                            leagues.map(league => <League setSpinner={setSpinner} league={league} key={league.idLeague} />)
-                        }
-                    </div>
-                </div>
             </section>
         </div>
     );
