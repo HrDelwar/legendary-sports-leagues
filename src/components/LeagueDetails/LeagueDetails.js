@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 const LeagueDetails = () => {
     const { leagueId } = useParams();
     const [league, setLeague] = useState({ strGender: '' });
-    console.log(leagueId);
+
     useEffect(() => {
         const url = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${leagueId}`;
         fetch(url)
@@ -22,7 +22,7 @@ const LeagueDetails = () => {
                 setLeague(data.leagues[0]);
             })
     }, [leagueId])
-    console.log(league);
+
     return (
         <div>
             <header className="d-flex align-items-center justify-content-center text-white">

@@ -3,9 +3,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './League.css'
+
 const League = ({ league }) => {
     const { idLeague, strLeague, strSport } = league;
     const [leagueDetails, setLeagueDetails] = useState({});
+    
     useEffect(() => {
         const url = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${idLeague}`;
         fetch(url)
@@ -14,6 +16,7 @@ const League = ({ league }) => {
                 setLeagueDetails(data.leagues[0]);
             })
     }, [idLeague])
+
     return (
         <div className='col-md-6 col-lg-4 col-xl-3 col-sm-12 '>
             <div className="card card-bg mb-4">

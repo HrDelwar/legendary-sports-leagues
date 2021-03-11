@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './NotFound.css'
+import './NotFound.css';
+
 const NotFound = () => {
     return (
         <div className='text-center bg-dark text-white d-flex flex-column justify-content-center vh-100'>

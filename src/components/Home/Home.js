@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import League from '../League/League';
-import './Home.css'
+import './Home.css';
+
 const Home = () => {
     const [leagues, setLeagues] = useState([]);
 

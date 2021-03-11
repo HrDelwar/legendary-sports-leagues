@@ -48,7 +48,9 @@
     line-height: 2;
     color: #fff;
 }
-
+.social-icon:focus{
+    outline:none;
+}
 .social-icon:hover {
     color: #fff;
     transform: scale(1.1)
