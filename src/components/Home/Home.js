@@ -13,7 +13,6 @@ const Home = () => {
                 setLeagues(topFiftyLeagues);
             })
     }, [])
-console.log(leagues);
 
     return (
         <div>

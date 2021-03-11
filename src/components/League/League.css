@@ -12,7 +12,6 @@
 .logo-container{
     max-width: 239px;
     margin: 20px auto 0 auto;
-    max-height: 96px;
 }
 .btn-custom {
 	background: linear-gradient(45deg,#ff069e,#e64cc7);

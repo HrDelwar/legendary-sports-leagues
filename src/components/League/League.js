@@ -18,7 +18,7 @@ const League = ({ league }) => {
         <div className='col-md-6 col-lg-4 col-xl-3 col-sm-12 '>
             <div className="card card-bg mb-4">
                 <div className="d-flex logo-container">
-                    <img src={leagueDetails.strLogo || leagueDetails.strBadge} class="card-img-top" alt="Logo" />
+                    <img src={leagueDetails.strBadge || leagueDetails.strLogo} className="card-img-top" alt="Logo" />
                 </div>
                 <div className="card-body">
                     <h5 className="card-title">{strLeague}</h5>
