@@ -13,13 +13,14 @@ import { Link } from 'react-router-dom';
 const LeagueDetails = () => {
     const { leagueId } = useParams();
     const [league, setLeague] = useState({ strGender: '' });
-
+    const [spinner, setSpinner] = useState(true);
     useEffect(() => {
         const url = `https://www.thesportsdb.com/api/v1/json/1/lookupleague.php?id=${leagueId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 setLeague(data.leagues[0]);
+                setSpinner(false);
             })
     }, [leagueId])
 
@@ -32,35 +33,45 @@ const LeagueDetails = () => {
             </header>
             <section className='p-3 leagues-section bg-custom'>
                 <div className="container">
-                    <div className="row league-detail p-3 mt-3 mx-0">
-                        <div className="col-lg-7">
-                            <h2 className="mb-4">{league.strLeague}</h2>
-                            <p><strong><FontAwesomeIcon icon={faCalendarCheck} className="mr-2" /> Founded:</strong> {moment(league.intFormedYear).format('YYYY')} </p>
-                            <p><strong><FontAwesomeIcon icon={faCalendarAlt} className="mr-2" /> First Event:</strong> {moment(league.dateFirstEvent).format('LL')} </p>
-                            <p><strong><FontAwesomeIcon icon={faGlobe} className="mr-2" /> Country:</strong> {league.strCountry} </p>
-                            <p><strong><FontAwesomeIcon icon={faTrophy} className="mr-2" /> Sport Type:</strong> {league.strSport} </p>
-                            <p><strong><FontAwesomeIcon icon={faMars} className="mr-2" /> Gender:</strong> {league.strGender}</p>
-                        </div>
-                        <div className="col-lg-5 d-flex justify-content-center align-items-center">
-                            <div className="league-img ">
-                                {
-                                    <img src={league.strGender.toLowerCase() === 'male' ? male : league.strGender.toLowerCase() === 'female' ? female : ''} alt="league" />
-                                }
+                    {
+                        spinner ? <div style={{ minHeight: '600px' }} class="d-flex justify-content-center align-items-center">
+                            <div class="spinner-border" role="status">
+                                <span class="visually-hidden"></span>
                             </div>
-                        </div>
-                    </div>
+                        </div> :
 
-                    <p className="mt-4 mx-0">{league.strDescriptionEN}</p>
-                    <p className="mt-4 mx-0">{league.strDescriptionFR}</p>
-                    <div className="d-flex justify-content-center">
-                        {league.strTwitter && <a href={`https://${league.strTwitter}`} target="_blank" rel="noreferrer" className="social-icon icon-twitter"><FontAwesomeIcon className="" icon={faTwitter} /></a>}
-                        {league.strFacebook && <a href={`https://${league.strFacebook}`} target="_blank" rel="noreferrer" className="social-icon icon-facebook"><FontAwesomeIcon className="" icon={faFacebookF} /></a>}
-                        {league.strWebsite && <a href={`https://${league.strWebsite}`} target="_blank" rel="noreferrer" className="social-icon icon-website"><FontAwesomeIcon className="" icon={faGlobe} /></a>}
-                        {league.strYoutube && <a href={`https://${league.strYoutube}`} target="_blank" rel="noreferrer" className="social-icon icon-youtube"><FontAwesomeIcon className="" icon={faYoutube} /></a>}
-                    </div>
-                    <div className="d-flex justify-content-center mt-3">
-                        <Link to="/" className="btn btn-custom">Back</Link>
-                    </div>
+                            <div className="">
+                                <div className="row league-detail p-3 mt-3 mx-0">
+                                    <div className="col-lg-7">
+                                        <h2 className="mb-4">{league.strLeague}</h2>
+                                        <p><strong><FontAwesomeIcon icon={faCalendarCheck} className="mr-2" /> Founded:</strong> {moment(league.intFormedYear).format('YYYY')} </p>
+                                        <p><strong><FontAwesomeIcon icon={faCalendarAlt} className="mr-2" /> First Event:</strong> {moment(league.dateFirstEvent).format('LL')} </p>
+                                        <p><strong><FontAwesomeIcon icon={faGlobe} className="mr-2" /> Country:</strong> {league.strCountry} </p>
+                                        <p><strong><FontAwesomeIcon icon={faTrophy} className="mr-2" /> Sport Type:</strong> {league.strSport} </p>
+                                        <p><strong><FontAwesomeIcon icon={faMars} className="mr-2" /> Gender:</strong> {league.strGender}</p>
+                                    </div>
+                                    <div className="col-lg-5 d-flex justify-content-center align-items-center">
+                                        <div className="league-img ">
+                                            {
+                                                <img src={league.strGender.toLowerCase() === 'male' ? male : league.strGender.toLowerCase() === 'female' ? female : ''} alt="league" />
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p className="mt-4 mx-0">{league.strDescriptionEN}</p>
+                                <p className="mt-4 mx-0">{league.strDescriptionFR}</p>
+                                <div className="d-flex justify-content-center">
+                                    {league.strTwitter && <a href={`https://${league.strTwitter}`} target="_blank" rel="noreferrer" className="social-icon icon-twitter"><FontAwesomeIcon className="" icon={faTwitter} /></a>}
+                                    {league.strFacebook && <a href={`https://${league.strFacebook}`} target="_blank" rel="noreferrer" className="social-icon icon-facebook"><FontAwesomeIcon className="" icon={faFacebookF} /></a>}
+                                    {league.strWebsite && <a href={`https://${league.strWebsite}`} target="_blank" rel="noreferrer" className="social-icon icon-website"><FontAwesomeIcon className="" icon={faGlobe} /></a>}
+                                    {league.strYoutube && <a href={`https://${league.strYoutube}`} target="_blank" rel="noreferrer" className="social-icon icon-youtube"><FontAwesomeIcon className="" icon={faYoutube} /></a>}
+                                </div>
+                                <div className="d-flex justify-content-center mt-3">
+                                    <Link to="/" className="btn btn-custom">Back</Link>
+                                </div>
+                            </div>
+                    }
                 </div>
             </section>
         </div>

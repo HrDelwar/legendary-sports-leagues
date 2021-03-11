@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './League.css'
 
-const League = ({ league }) => {
+const League = ({ league, setSpinner }) => {
     const { idLeague, strLeague, strSport } = league;
     const [leagueDetails, setLeagueDetails] = useState({});
     
@@ -14,6 +14,7 @@ const League = ({ league }) => {
             .then(res => res.json())
             .then(data => {
                 setLeagueDetails(data.leagues[0]);
+                setSpinner(false);
             })
     }, [idLeague])
 

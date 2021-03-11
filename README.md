@@ -25,6 +25,7 @@
    * Sports league cards
    * League details page
    * Back button
+   * Spinner
 ## Fixing Issue
    * netlify redirect
    * page not found
